@@ -19,6 +19,4 @@ while getopts "c:a:w:t:" opt; do
   esac
 done
 
-output=$(/app/incident-notification ${args})
-echo "result=${output}" >> "${GITHUB_OUTPUT}"
-cat "${GITHUB_OUTPUT}"
+/app/incident-notification ${args}
