@@ -1,0 +1,24 @@
+name: "Waroom Incident Notification"
+description: "Notify Slack of waroom incidents"
+author: "mekka<chmikata@gmail.com>"
+inputs:
+  api-key:
+    description: "Waroom API key"
+    required: true
+  webhook-url:
+    description: "Slack webhook URL"
+    required: true
+  template:
+    description: "Go template for the message"
+    required: true
+outputs:
+  result:
+    description: "Output result"
+runs:
+  using: "docker"
+  image: "Dockerfile"
+  args:
+    - "-c action"
+    - "-a ${{ inputs.api-key }}"
+    - "-w ${{ inputs.webhook-url }}"
+    - "-t ${{ inputs.template }}"
