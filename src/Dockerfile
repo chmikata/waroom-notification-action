@@ -12,7 +12,5 @@ FROM debian:bookworm-slim
 WORKDIR /app
 COPY --from=builder --chown=nobody:nogroup /app/out/incident-notification /app/
 
-USER nobody
-
 ENTRYPOINT ["/app/incident-notification"]
 CMD ["--help"]
