@@ -17,16 +17,17 @@ type IncidentResponce struct {
 }
 
 type Incident struct {
-	Uuid       string       `json:"uuid"`
-	Title      string       `json:"title"`
-	Severity   string       `json:"severity"`
-	Status     string       `json:"status"`
-	RootCause  string       `json:"root_cause"`
-	Metrics    Metrics      `json:"metrics"`
-	Service    Service      `json:"service"`
-	Labels     []Label      `json:"labels"`
-	CreatedAt  string       `json:"created_at"`
-	Postmortem []Postmortem `json:"postmortems"`
+	Uuid         string       `json:"uuid"`
+	Title        string       `json:"title"`
+	Severity     string       `json:"severity"`
+	Status       string       `json:"status"`
+	RootCause    string       `json:"root_cause"`
+	Metrics      Metrics      `json:"metrics"`
+	Experimental bool         `json:"experimental"`
+	Service      Service      `json:"service"`
+	Labels       []Label      `json:"labels"`
+	CreatedAt    string       `json:"created_at"`
+	Postmortem   []Postmortem `json:"postmortems"`
 }
 
 type Metrics struct {
