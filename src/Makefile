@@ -1,6 +1,6 @@
 # Define the image name and tag
 IMAGE_NAME = ghcr.io/chmikata/incident-notification
-IMAGE_TAG = 0.1.0
+IMAGE_TAG = 0.2.0
 
 # Declare phony targets
 .PHONY: build push

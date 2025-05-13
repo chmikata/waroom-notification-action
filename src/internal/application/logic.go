@@ -2,6 +2,7 @@ package application
 
 import (
 	"bytes"
+	"iter"
 	"text/template"
 
 	"github.com/Masterminds/sprig/v3"
@@ -56,10 +57,8 @@ func (i *IncidentNotificatin) convert(tpl string, incidents []incident.Incident)
 	}
 
 	var targets []incident.Incident
-	for _, inc := range incidents {
-		if inc.Status != string(Completed) {
-			targets = append(targets, inc)
-		}
+	for inc := range selectIncident(incidents) {
+		targets = append(targets, inc)
 	}
 
 	buff := new(bytes.Buffer)
@@ -67,4 +66,14 @@ func (i *IncidentNotificatin) convert(tpl string, incidents []incident.Incident)
 		return "", err
 	}
 	return buff.String(), nil
+}
+
+func selectIncident(incidents []incident.Incident) iter.Seq[incident.Incident] {
+	return func(yeild func(incident.Incident) bool) {
+		for _, inc := range incidents {
+			if inc.Status != string(Completed) && !inc.Experimental {
+				yeild(inc)
+			}
+		}
+	}
 }
