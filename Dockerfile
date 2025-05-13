@@ -1,4 +1,4 @@
-FROM ghcr.io/chmikata/incident-notification:0.1.0
+FROM ghcr.io/chmikata/incident-notification:0.2.0
 
 COPY entrypoint.sh /app
 RUN chmod +x /app/entrypoint.sh
