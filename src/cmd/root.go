@@ -10,7 +10,7 @@ var rootCmd = &cobra.Command{
 	Use:   "incident-notification",
 	Short: "This is a command to notify you of an incident.",
 	Long: `This is a command to notify you of an incident.
-	
+
 It collects incidents from Waroom and sends them to Slack.`,
 }
 

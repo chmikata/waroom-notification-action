@@ -51,6 +51,10 @@ func (i *IncidentNotificatin) Do(tpl string) error {
 }
 
 func (i *IncidentNotificatin) convert(tpl string, incidents []incident.Incident) (string, error) {
+	if len(incidents) == 0 {
+		return "{\"text\": \"*Incident Status*\n🎉There are No Incidents🎉\"}", nil
+	}
+
 	output, err := template.New("incident").Funcs(sprig.FuncMap()).Parse(tpl)
 	if err != nil {
 		return "", err
