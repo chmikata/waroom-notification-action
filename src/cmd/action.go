@@ -17,7 +17,7 @@ var actionCmd = &cobra.Command{
 	Use:   "action",
 	Short: "This is a command to notify you of an incident.",
 	Long: `This is a command to notify you of an incident.
-	
+
 It collects incidents from Waroom and sends them to Slack.`,
 
 	PreRunE: func(cmd *cobra.Command, args []string) error {
